@@ -27,7 +27,20 @@ php artisan serve
 
 ## Send email demo
 
-Replace the email address destination in `routes\web.php`
+First adjust your `.env` file first with your own configuration.
+
+```
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp-relay.brevo.com
+MAIL_PORT=587
+MAIL_USERNAME=login.address@xxx.com
+MAIL_PASSWORD=masterpassword
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS="${MAIL_USERNAME}"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+Replace the email address destination in `routes\web.php`.
 
 ```php
 \Mail::to('destination.address@xxx.com')->send(new \App\Mail\TestMail($details));
